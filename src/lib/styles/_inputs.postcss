@@ -1,0 +1,16 @@
+input {
+	border: 2px solid var(--color-gray-200);
+	border-radius: 0.25rem;
+	padding: 0.5rem 1rem;
+	width: 100%;
+	max-width: 20rem;
+	background-color: var(--color-gray-50);
+	color: var(--color-gray-1000);
+	font-weight: 500;
+	&:active {
+		border: 2px solid var(--color-gray-300);
+	}
+	&.error {
+		border: 2px solid var(--color-error-500);
+	}
+}
