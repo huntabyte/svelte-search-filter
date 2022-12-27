@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createSearchStore, searchHandler } from '$lib/stores/search';
+	import { onDestroy } from 'svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -11,7 +12,11 @@
 
 	const searchStore = createSearchStore(searchProducts);
 
-	searchStore.subscribe((model) => searchHandler(model));
+	const unsubscribe = searchStore.subscribe((model) => searchHandler(model));
+
+	onDestroy(() => {
+		unsubscribe();
+	});
 </script>
 
 <div class="container">
