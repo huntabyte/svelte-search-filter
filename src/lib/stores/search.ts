@@ -10,7 +10,7 @@ export const createSearchStore = <T extends Record<PropertyKey, any>>(
 	data: T[],
 ) => {
 	const { subscribe, set, update } = writable<SearchStoreModel<T>>({
-		data,
+		data: data,
 		filtered: data,
 		search: "",
 	})

@@ -5,9 +5,17 @@
 
 	export let data: PageData;
 
-	const searchProducts = data.products.map((product: any) => ({
+	type Product = {
+		title: string;
+		description: string;
+		brand: string;
+		category: string;
+		searchTerms: string;
+	};
+
+	const searchProducts: Product[] = data.products.map((product: Product) => ({
 		...product,
-		searchTerms: `${product.title} ${product.description} ${product.category} ${product.brand}`
+		searchTerms: `${product.title} ${product.description} ${product.brand} ${product.category}`
 	}));
 
 	const searchStore = createSearchStore(searchProducts);
